@@ -1,0 +1,29 @@
+FUNCTION is_palindrome(str : STRING, i, n : INTEGER) : BOOLEAN
+
+BEGIN
+    IF (n-1 = i) THEN
+        RETURN TRUE;
+    ELSE
+        IF (str[i] = str[n-1]) THEN
+            RETURN is_palindrome(str, i+1, n-1);
+        ELSE
+            RETURN FALSE;
+        END_IF
+    END_IF
+END
+
+ALGORITHM palindrome
+VAR
+    word : STRING[50];
+    l : INTEGER;
+    j : INTEGER := 0;
+BEGIN
+Write("Give the word you want to test : ");
+Read(word);
+l := word.length;
+    IF (is_palindrome(word, j, l) = TRUE) THEN
+        Write("The word is a palindrome");
+    ELSE
+        Write("The word is not a palindrome");
+    END_IF
+END
